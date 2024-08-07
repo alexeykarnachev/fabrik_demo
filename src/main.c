@@ -1,7 +1,6 @@
 #include "raylib.h"
 #include "raymath.h"
 #include "rlgl.h"
-#include <stdio.h>
 #include <string.h>
 
 #define SCREEN_WIDTH 1024
@@ -140,7 +139,6 @@ void update(void) {
     ARM.target = GetScreenToWorld2D(GetMousePosition(), CAMERA);
 
     for (int i = 0; i < MAX_N_FABRIK_STEPS; ++i) {
-        printf("%d\n", i);
         float error = fabrik_step(&ARM);
         if (error < FABRIK_ERROR_MARGIN) break;
     }
